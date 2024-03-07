@@ -1,13 +1,13 @@
-const users = require("./users.json");
-const { getUserInfo, capitalizeFirstLetter: cfl } = require("./utils");
+// const users = require("./users.json");
+// const { getUserInfo, capitalizeFirstLetter: cfl } = require("./utils");
 
 // for (let user of users) {
 //     console.log(getUserInfo(user));
 // }
 
-console.log(cfl("a"));
-console.log(cfl("ab"));
-console.log(cfl("abc"));
+// console.log(cfl("a"));
+// console.log(cfl("ab"));
+// console.log(cfl("abc"));
 
 
 // console.log(users);
@@ -18,3 +18,7 @@ console.log(cfl("abc"));
 
 // export default greet; 
 // module.exports = greet; 
+
+console.log("Hello!");
+console.log(__dirname);
+console.log(__filename);
