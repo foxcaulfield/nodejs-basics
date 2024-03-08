@@ -1,3 +1,4 @@
+
 // const users = require("./users.json");
 // const { getUserInfo, capitalizeFirstLetter: cfl } = require("./utils");
 
@@ -19,6 +20,6 @@
 // export default greet; 
 // module.exports = greet; 
 
-console.log("Hello!");
-console.log(__dirname);
-console.log(__filename);
+// console.log("Hello!");
+// console.log(__dirname);
+// console.log(__filename);
