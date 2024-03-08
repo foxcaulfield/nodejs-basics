@@ -1,25 +1,8 @@
+const hero = require("./super-hero");
 
-// const users = require("./users.json");
-// const { getUserInfo, capitalizeFirstLetter: cfl } = require("./utils");
+console.log(hero.name);
+hero.name = "SuperMan";
+console.log(hero.name);
 
-// for (let user of users) {
-//     console.log(getUserInfo(user));
-// }
-
-// console.log(cfl("a"));
-// console.log(cfl("ab"));
-// console.log(cfl("abc"));
-
-
-// console.log(users);
-
-// function greet (name) {
-//     console.log(`Hello, ${name}!`);
-// }
-
-// export default greet; 
-// module.exports = greet; 
-
-// console.log("Hello!");
-// console.log(__dirname);
-// console.log(__filename);
+const hero2 = require("./super-hero");
+console.log(hero2.name);
