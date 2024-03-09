@@ -11,7 +11,7 @@ class PizzaEmitter extends EventEmitter {
   constructor() {
     super();
     this.on("order-pizza", (clientName: string, size: Size = Size.medium) => {
-      const order = new Order(generateId(), size, clientName);
+      const order = new Order(size, clientName);
       console.log(
         `${order.id} Order recieved! (${Size[order.size]} pizza for ${
           order.clientName
@@ -37,7 +37,9 @@ class PizzaEmitter extends EventEmitter {
 
     this.on("cook-end", (order: Order) => {
       console.log(
-        `${order.id} Pizza is ready (${Size[order.size]} pizza for ${order.clientName})`
+        `${order.id} Pizza is ready (${Size[order.size]} pizza for ${
+          order.clientName
+        })`
       );
       setTimeout(() => this.emit("give-pizza", order), 1000);
     });
@@ -45,6 +47,10 @@ class PizzaEmitter extends EventEmitter {
     this.on("give-pizza", (order: Order) =>
       console.log(`${order.id} Order completed! ${order.clientName} is happy`)
     );
+
+    this.on("error", (err: Error) => {
+      console.error("An error occurred:", err.message);
+    });
   }
   registerOrder(size: Size, clientName: string) {
     this.emit("order-pizza", clientName, size);
@@ -57,8 +63,8 @@ class Order {
   #id: string;
   #size: Size;
   #clientName: string;
-  constructor(id: string, size: Size, clientName: string) {
-    this.#id = id;
+  constructor(size: Size, clientName: string) {
+    this.#id = generateId();
     this.#size = size;
     this.#clientName = clientName;
   }
