@@ -2,10 +2,12 @@
   "name": "nodejs-basics",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "src/main.js",
   "scripts": {
-    "start": "node main.js",
-    "dev": "nodemon main.js"
+    "build": "rimraf ./build && tsc",
+    "exec": "node build/main.js",
+    "build_exec": "npm run build && node build/main.js",
+    "dev": "nodemon"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +17,7 @@
     "nodemon": "^3.1.0",
     "rimraf": "^5.0.5",
     "ts-node": "^10.9.2",
+    "tslib": "^2.6.2",
     "typescript": "^5.4.2"
   }
 }
