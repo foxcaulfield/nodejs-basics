@@ -38,7 +38,7 @@ function generateId(length = 6) {
     const alphabet = "abcdefghijklmnopqrstuvwxyz1234567890";
     let result = "";
     for (let i = 0; i < length; ++i) {
-        const index = getRandomNumberFromRange(0, alphabet.length);
+        const index = getRandomNumberFromRange(0, alphabet.length - 1);
         result += alphabet[index];
     }
     return result;
