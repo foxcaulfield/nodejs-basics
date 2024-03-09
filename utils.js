@@ -34,4 +34,14 @@ function getRandomWord() {
     return words[index];
 }
 
-module.exports = { getUserInfo, capitalizeFirstLetter, getRandomWord };
+function generateId(length = 6) {
+    const alphabet = "abcdefghijklmnopqrstuvwxyz1234567890";
+    let result = "";
+    for (let i = 0; i < length; ++i) {
+        const index = getRandomNumberFromRange(0, alphabet.length);
+        result += alphabet[index];
+    }
+    return result;
+}
+
+module.exports = { getUserInfo, capitalizeFirstLetter, getRandomWord, generateId };
