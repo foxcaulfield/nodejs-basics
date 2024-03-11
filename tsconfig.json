@@ -106,6 +106,7 @@
     "noStrictGenericChecks": false /* Disable strict checking of generic signatures in function types. */
   },
   "exclude": [
-    "homework"
+    "homework",
+    "build"
   ]
 }
