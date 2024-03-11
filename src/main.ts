@@ -5,4 +5,5 @@
 // require("./examples/Pizza");
 // require("./examples/buffer_ref");
 // require("./examples/stream_ref");
-require("./examples/pipe_ref");
+// require("./examples/pipe_ref");
+require("./examples/http_ref");
