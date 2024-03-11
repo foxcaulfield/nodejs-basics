@@ -4,4 +4,4 @@
 
 // require("./examples/Pizza");
 // require("./examples/buffer_ref");
-require("./examples/fs_ref");
+require("./examples/stream_ref");
