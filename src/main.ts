@@ -7,4 +7,4 @@
 // require("./examples/stream_ref");
 // require("./examples/pipe_ref");
 // require("./examples/http_ref");
-require("./servers/server6");
+require("./servers/server7");
