@@ -1,52 +1,26 @@
 const clog = console.log;
 
-// ex. 9
+// ex. 10
 console.log("clog 1");
 console.log("clog 2");
 console.log("clog 3");
 
-setTimeout(() => {
-  clog("timeout 1");
-}, 0);
-setTimeout(() => {
-  clog("timeout 2");
-}, 0);
-setTimeout(() => {
-  clog("timeout 3");
-  process.nextTick(() => clog("nexttick in timeout 3"));
+Promise.resolve().then(() => clog("Promise 1"));
+Promise.resolve().then(() => {
+  clog("Promise 2");
+  process.nextTick(() => clog("nexttick in Promise 2"));
+});
+Promise.resolve().then(() => clog("Promise 3"));
 
-  Promise.resolve().then(() => {
-    clog("promise in timeout 3");
-    Promise.resolve().then(() => {
-      clog("1-deeper promise in timeout 3");
-      process.nextTick(() => clog("1-deeper nexttick in timeout 3"));
-      Promise.resolve().then(() => {
-        clog("2-deeper promise in timeout 3");
-      });
-    });
-  });
-  queueMicrotask(() => clog("queueMicrotask in timeout 3"));
-}, 0);
-
-Promise.resolve().then(() => {
-  clog("promise 1");
-});
-Promise.resolve().then(() => {
-  clog("promise 2");
-  setTimeout(() => {
-    clog("timeout in promise 2");
-  }, 0);
-});
-Promise.resolve().then(() => {
-  clog("promise 3");
-  queueMicrotask(() => {
-    clog("queuemicrotask in promise 3");
-    process.nextTick(() => clog("nexttick in queuemicrotask in promise 3"));
-    setTimeout(() => {
-      clog("timeout in queuemicrotask in promise 3");
-    }, 0);
-  });
-});
+// Promise.resolve().then(() => {
+//   clog("promise 1");
+// });
+// Promise.resolve().then(() => {
+//   clog("promise 2");
+// });
+// Promise.resolve().then(() => {
+//   clog("promise 3");
+// });
 
 process.nextTick(() => clog("nexttick 1"));
 process.nextTick(() => clog("nexttick 2"));
@@ -54,9 +28,6 @@ process.nextTick(() => clog("nexttick 3"));
 
 queueMicrotask(() => {
   clog("queuemicrotask 1");
-  setTimeout(() => {
-    clog("timeout in queuemicrotask 1");
-  }, 0);
 });
 queueMicrotask(() => {
   clog("queuemicrotask 2");
@@ -64,6 +35,70 @@ queueMicrotask(() => {
 queueMicrotask(() => {
   clog("queuemicrotask 3");
 });
+// // ex. 9
+// console.log("clog 1");
+// console.log("clog 2");
+// console.log("clog 3");
+
+// setTimeout(() => {
+//   clog("timeout 1");
+// }, 0);
+// setTimeout(() => {
+//   clog("timeout 2");
+// }, 0);
+// setTimeout(() => {
+//   clog("timeout 3");
+//   process.nextTick(() => clog("nexttick in timeout 3"));
+
+//   Promise.resolve().then(() => {
+//     clog("promise in timeout 3");
+//     Promise.resolve().then(() => {
+//       clog("1-deeper promise in timeout 3");
+//       process.nextTick(() => clog("1-deeper nexttick in timeout 3"));
+//       Promise.resolve().then(() => {
+//         clog("2-deeper promise in timeout 3");
+//       });
+//     });
+//   });
+//   queueMicrotask(() => clog("queueMicrotask in timeout 3"));
+// }, 0);
+
+// Promise.resolve().then(() => {
+//   clog("promise 1");
+// });
+// Promise.resolve().then(() => {
+//   clog("promise 2");
+//   setTimeout(() => {
+//     clog("timeout in promise 2");
+//   }, 0);
+// });
+// Promise.resolve().then(() => {
+//   clog("promise 3");
+//   queueMicrotask(() => {
+//     clog("queuemicrotask in promise 3");
+//     process.nextTick(() => clog("nexttick in queuemicrotask in promise 3"));
+//     setTimeout(() => {
+//       clog("timeout in queuemicrotask in promise 3");
+//     }, 0);
+//   });
+// });
+
+// process.nextTick(() => clog("nexttick 1"));
+// process.nextTick(() => clog("nexttick 2"));
+// process.nextTick(() => clog("nexttick 3"));
+
+// queueMicrotask(() => {
+//   clog("queuemicrotask 1");
+//   setTimeout(() => {
+//     clog("timeout in queuemicrotask 1");
+//   }, 0);
+// });
+// queueMicrotask(() => {
+//   clog("queuemicrotask 2");
+// });
+// queueMicrotask(() => {
+//   clog("queuemicrotask 3");
+// });
 
 // // ex. 8
 // console.log("clog 1");
