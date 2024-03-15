@@ -8,8 +8,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "upper-case": "^3.0.0"
-  }
+  "license": "ISC"
 }
